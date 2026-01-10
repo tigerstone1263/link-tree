@@ -239,3 +239,10 @@ p {
   text-transform: uppercase;
   color: #1b1b1b;
 }
+
+.release-date {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(27, 27, 27, 0.55);
+  letter-spacing: 0.02em;
+}

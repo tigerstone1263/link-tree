@@ -1,6 +1,7 @@
 window.APP_CONFIG = {
   title: "Absolute Pitch",
   description: "Gradually improve Absolute Pitch by practicing your listening skills from Notes to Tension Chords, 251 Voicings, and Mode Scales.",
+  releaseDate: "2022",
   logoSrc: "assets/appIcon.png",
   logoAlt: "Absolute Pitch logo",
   appStore: {
