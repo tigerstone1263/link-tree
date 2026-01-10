@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dasi Stand</title>
+  <meta property="og:title" content="Dasi Stand" />
+  <meta property="og:description" content="Discover the app on your store." />
+  <meta property="og:image" content="assets/logo-placeholder.svg" />
+  <meta property="og:image:alt" content="Dasi Stand logo" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/logo-placeholder.svg" />
+  <link rel="stylesheet" href="../../shared/style.css" />
+</head>
+<body>
+  <main class="card">
+    <div class="logo-wrap" aria-hidden="true">
+      <img id="appLogo" src="assets/logo-placeholder.svg" alt="Dasi Stand logo" />
+    </div>
+    <h1 id="pageTitle">Dasi Stand</h1>
+    <p id="pageDescription">Discover the app on your store.</p>
+
+    <div class="buttons">
+      <a class="store-btn" id="appStoreBtn" href="https://apps.apple.com/app/id0000000000" aria-label="Open in the App Store">
+        <span class="icon" aria-hidden="true">
+          <img src="../../shared/assets/appStore.jpeg" alt="" />
+        </span>
+        <span class="label">App Store</span>
+      </a>
+      <a class="store-btn secondary" id="playStoreBtn" href="https://play.google.com/store/apps/details?id=com.example.app" aria-label="Open in the Play Store">
+        <span class="icon" aria-hidden="true">
+          <img src="../../shared/assets/playStore.png" alt="" />
+        </span>
+        <span class="label">Play Store</span>
+      </a>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
+  </main>
+
+  <script src="./app-config.js"></script>
+  <script src="../../shared/app.js"></script>
+</body>
+</html>

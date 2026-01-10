@@ -1,10 +1,10 @@
 window.APP_CONFIG = {
   title: "Absolute Ear",
   description: "Train Your Absolute & Relative Pitch",
-  logoSrc: "logo512.jpg",
-  logoAlt: "App logo",
+  logoSrc: "assets/logo512.jpg",
+  logoAlt: "Absolute Ear logo",
   appStore: {
-    url: "https://apps.apple.com/us/app/absolute-ear-train-your-pitch/id6739764701",
+    url: "https://apps.apple.com/app/apple-store/id6739764701?pt=125213920&ct=tigerstone/link_tree&mt=8",
     label: "App Store"
   },
   playStore: {
