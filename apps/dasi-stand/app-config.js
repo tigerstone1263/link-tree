@@ -1,14 +1,14 @@
 window.APP_CONFIG = {
   title: "Dasi Stand",
-  description: "Discover the app on your store.",
+  description: "Beyond progressive, conservative, and centrist labels, a balanced perspective on the world.",
   logoSrc: "assets/logo-placeholder.svg",
   logoAlt: "Dasi Stand logo",
   appStore: {
-    url: "https://apps.apple.com/app/id0000000000",
+    url: "https://apps.apple.com/us/app/app-store/id6748309466?pt=125213920&ct=link_tree&mt=8",
     label: "App Store"
   },
   playStore: {
-    url: "https://play.google.com/store/apps/details?id=com.example.app",
+    url: "https://play.google.com/store/apps/details?id=com.PassionDev.DasiStand&referrer=utm_source%3Dlink_tree",
     label: "Play Store"
   }
 };

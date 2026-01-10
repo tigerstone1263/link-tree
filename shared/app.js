@@ -2,6 +2,7 @@
   const fallbackConfig = {
     title: "Get the app",
     description: "Find the right store for your device.",
+    releaseDate: "",
     logoSrc: "",
     logoAlt: "App logo",
     appStore: {
@@ -18,6 +19,7 @@
   const resolvedConfig = {
     title: config.title || fallbackConfig.title,
     description: config.description || fallbackConfig.description,
+    releaseDate: config.releaseDate || fallbackConfig.releaseDate,
     logoSrc: config.logoSrc || fallbackConfig.logoSrc,
     logoAlt: config.logoAlt || fallbackConfig.logoAlt,
     appStore: {
@@ -35,10 +37,20 @@
   const playStoreBtn = document.getElementById("playStoreBtn");
   const pageTitle = document.getElementById("pageTitle");
   const pageDescription = document.getElementById("pageDescription");
+  const releaseDateEl = document.getElementById("releaseDate");
   const logoImg = document.getElementById("appLogo");
 
   if (pageTitle) pageTitle.textContent = resolvedConfig.title;
   if (pageDescription) pageDescription.textContent = resolvedConfig.description;
+  if (releaseDateEl) {
+    if (resolvedConfig.releaseDate) {
+      releaseDateEl.textContent = `Release date: ${resolvedConfig.releaseDate}`;
+      releaseDateEl.hidden = false;
+    } else {
+      releaseDateEl.textContent = "";
+      releaseDateEl.hidden = true;
+    }
+  }
   if (resolvedConfig.title) document.title = resolvedConfig.title;
 
   if (logoImg && resolvedConfig.logoSrc) {
