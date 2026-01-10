@@ -72,12 +72,15 @@
       display: grid;
       place-items: center;
       box-shadow: inset 0 0 0 2px rgba(27, 27, 27, 0.1);
+      overflow: hidden;
+      clip-path: inset(0 round 38px);
     }
 
     .logo-wrap img {
-      width: 88px;
-      height: 88px;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     h1 {
@@ -106,9 +109,9 @@
       width: 100%;
       padding: 14px 18px;
       border-radius: 14px;
-      border: 1px solid transparent;
-      background: #111111;
-      color: #fff4e7;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #0f0f0f;
+      color: #fdf6ee;
       font-family: "Space Grotesk", "Segoe UI", sans-serif;
       font-size: 15px;
       letter-spacing: 0.02em;
@@ -122,18 +125,33 @@
     }
 
     .store-btn.secondary {
-      background: #f4efe6;
-      color: #1b1b1b;
-      border-color: rgba(27, 27, 27, 0.1);
+      background: #0f0f0f;
+      color: #fdf6ee;
+      border-color: rgba(255, 255, 255, 0.12);
     }
 
     .store-btn.recommended {
-      background: linear-gradient(120deg, #1b1b1b 0%, #374c4d 100%);
+      background: linear-gradient(120deg, #0f0f0f 0%, #2d2d2d 100%);
       box-shadow: 0 10px 22px rgba(27, 27, 27, 0.25);
     }
 
     .store-btn:hover {
       transform: translateY(-2px);
+    }
+
+    .store-btn .icon {
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .store-btn .icon img {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
     .status {
@@ -192,26 +210,61 @@
 <body>
   <main class="card">
     <div class="logo-wrap" aria-hidden="true">
-      <img src="logo512.jpg" alt="App logo" />
+      <img id="appLogo" src="logo512.jpg" alt="App logo" />
     </div>
-    <h1>Open the app store</h1>
-    <p>We will guide you to the right store for your device. You can also choose manually.</p>
+    <h1 id="pageTitle">Absolute Ear</h1>
+    <p id="pageDescription">Train Your Absolute & Relative Pitch</p>
 
     <div class="buttons">
       <a class="store-btn" id="appStoreBtn" href="https://apps.apple.com/app/id0000000000" aria-label="Open in the App Store">
-        App Store
+        <span class="icon" aria-hidden="true">
+          <img src="appStore.jpeg" alt="" />
+        </span>
+        <span class="label">App Store</span>
       </a>
       <a class="store-btn secondary" id="playStoreBtn" href="https://play.google.com/store/apps/details?id=com.example.app" aria-label="Open in the Play Store">
-        Play Store
+        <span class="icon" aria-hidden="true">
+          <img src="playStore.png" alt="" />
+        </span>
+        <span class="label">Play Store</span>
       </a>
     </div>
     <div class="status" id="status" aria-live="polite"></div>
-    <div class="hint">Logo loaded from <strong>logo512.jpg</strong>.</div>
+    <div class="hint">Logo loaded from <strong id="logoFileName">logo512.jpg</strong>.</div>
   </main>
 
+  <script src="app-config.js"></script>
   <script>
-    const appStoreUrl = "https://apps.apple.com/app/id0000000000";
-    const playStoreUrl = "https://play.google.com/store/apps/details?id=com.example.app";
+    const fallbackConfig = {
+      title: "Absolute Ear",
+      description: "Train Your Absolute & Relative Pitch",
+      logoSrc: "logo512.jpg",
+      logoAlt: "App logo",
+      appStore: {
+        url: "https://apps.apple.com/app/id0000000000",
+        label: "App Store"
+      },
+      playStore: {
+        url: "https://play.google.com/store/apps/details?id=com.example.app",
+        label: "Play Store"
+      }
+    };
+
+    const config = window.APP_CONFIG || fallbackConfig;
+    const resolvedConfig = {
+      title: config.title || fallbackConfig.title,
+      description: config.description || fallbackConfig.description,
+      logoSrc: config.logoSrc || fallbackConfig.logoSrc,
+      logoAlt: config.logoAlt || fallbackConfig.logoAlt,
+      appStore: {
+        url: (config.appStore && config.appStore.url) || fallbackConfig.appStore.url,
+        label: (config.appStore && config.appStore.label) || fallbackConfig.appStore.label
+      },
+      playStore: {
+        url: (config.playStore && config.playStore.url) || fallbackConfig.playStore.url,
+        label: (config.playStore && config.playStore.label) || fallbackConfig.playStore.label
+      }
+    };
 
     const ua = navigator.userAgent || navigator.vendor || window.opera;
     const isAndroid = /Android/i.test(ua);
@@ -220,6 +273,28 @@
     const statusEl = document.getElementById("status");
     const appStoreBtn = document.getElementById("appStoreBtn");
     const playStoreBtn = document.getElementById("playStoreBtn");
+    const pageTitle = document.getElementById("pageTitle");
+    const pageDescription = document.getElementById("pageDescription");
+    const logoImg = document.getElementById("appLogo");
+    const logoFileName = document.getElementById("logoFileName");
+
+    if (pageTitle) pageTitle.textContent = resolvedConfig.title;
+    if (pageDescription) pageDescription.textContent = resolvedConfig.description;
+    if (logoImg) {
+      logoImg.src = resolvedConfig.logoSrc;
+      logoImg.alt = resolvedConfig.logoAlt;
+    }
+    if (logoFileName) logoFileName.textContent = resolvedConfig.logoSrc;
+    if (appStoreBtn) {
+      appStoreBtn.href = resolvedConfig.appStore.url;
+      const label = appStoreBtn.querySelector(".label");
+      if (label) label.textContent = resolvedConfig.appStore.label;
+    }
+    if (playStoreBtn) {
+      playStoreBtn.href = resolvedConfig.playStore.url;
+      const label = playStoreBtn.querySelector(".label");
+      if (label) label.textContent = resolvedConfig.playStore.label;
+    }
 
     const markRecommended = (button) => {
       if (!button) return;
@@ -236,10 +311,10 @@
 
     if (isIOS) {
       markRecommended(appStoreBtn);
-      redirectTo(appStoreUrl, "the App Store");
+      redirectTo(resolvedConfig.appStore.url, resolvedConfig.appStore.label);
     } else if (isAndroid) {
       markRecommended(playStoreBtn);
-      redirectTo(playStoreUrl, "the Play Store");
+      redirectTo(resolvedConfig.playStore.url, resolvedConfig.playStore.label);
     } else {
       statusEl.textContent = "We could not detect your device. Please choose a store.";
     }
