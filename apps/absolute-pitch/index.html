@@ -5,31 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Absolute Pitch</title>
   <meta property="og:title" content="Absolute Pitch" />
-  <meta property="og:description" content="Train your pitch skills." />
-  <meta property="og:image" content="assets/logo-placeholder.svg" />
+  <meta property="og:description" content="Gradually improve Absolute Pitch by practicing your listening skills." />
+  <meta property="og:image" content="assets/appIcon.png" />
   <meta property="og:image:alt" content="Absolute Pitch logo" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="assets/logo-placeholder.svg" />
+  <meta name="twitter:image" content="assets/appIcon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../shared/style.css" />
 </head>
-<body>
+<body class="app-page" style="--accent: #3a8d8f; --ar: 58; --ag: 141; --ab: 143">
+
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="blob app-blob-1"></div>
+    <div class="blob app-blob-2"></div>
+  </div>
+
+  <a class="back-link" href="../../">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    All Projects
+  </a>
+
   <main class="card">
     <div class="logo-wrap" aria-hidden="true">
-      <img id="appLogo" src="assets/logo-placeholder.svg" alt="Absolute Pitch logo" />
+      <img id="appLogo" src="assets/appIcon.png" alt="Absolute Pitch logo" />
     </div>
     <h1 id="pageTitle">Absolute Pitch</h1>
-    <p id="pageDescription">Train your pitch skills.</p>
-    <p id="releaseDate" class="release-date"></p>
+    <p id="pageDescription">Gradually improve Absolute Pitch by practicing your listening skills.</p>
+    <p id="releaseDate" class="release-date" hidden></p>
 
     <div class="buttons">
-      <a class="store-btn" id="appStoreBtn" href="https://apps.apple.com/app/id0000000000" aria-label="Open in the App Store">
+      <a class="store-btn" id="appStoreBtn" href="https://apps.apple.com/app/apple-store/id1636530380?pt=125213920&ct=link_tree&mt=8" aria-label="Open in the App Store">
         <span class="icon" aria-hidden="true">
           <img src="../../shared/assets/appStore.jpeg" alt="" />
         </span>
         <span class="label">App Store</span>
       </a>
-      <a class="store-btn secondary" id="playStoreBtn" href="https://play.google.com/store/apps/details?id=com.example.app" aria-label="Open in the Play Store">
+      <a class="store-btn secondary" id="playStoreBtn" href="https://play.google.com/store/apps/details?id=com.tigerstone.AbsolutePitch&referrer=utm_source%3Dlink_tree" aria-label="Open in the Play Store">
         <span class="icon" aria-hidden="true">
           <img src="../../shared/assets/playStore.png" alt="" />
         </span>

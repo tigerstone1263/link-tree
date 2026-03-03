@@ -11,16 +11,32 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="assets/logo512.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../shared/style.css" />
 </head>
-<body>
+<body class="app-page" style="--accent: #7c6af6; --ar: 124; --ag: 106; --ab: 246">
+
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="blob app-blob-1"></div>
+    <div class="blob app-blob-2"></div>
+  </div>
+
+  <a class="back-link" href="../../">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    All Projects
+  </a>
+
   <main class="card">
     <div class="logo-wrap" aria-hidden="true">
       <img id="appLogo" src="assets/logo512.jpg" alt="Absolute Ear logo" />
     </div>
     <h1 id="pageTitle">Absolute Ear</h1>
-    <p id="pageDescription">Train Your Absolute & Relative Pitch</p>
-    <p id="releaseDate" class="release-date"></p>
+    <p id="pageDescription">Train Your Absolute &amp; Relative Pitch</p>
+    <p id="releaseDate" class="release-date" hidden></p>
 
     <div class="buttons">
       <a class="store-btn" id="appStoreBtn" href="https://apps.apple.com/app/apple-store/id6739764701?pt=125213920&ct=tigerstone/link_tree&mt=8" aria-label="Open in the App Store">

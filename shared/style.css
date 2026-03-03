@@ -704,3 +704,153 @@ body.home h1 {
   .hero-name    { font-size: 36px; }
   .projects-grid { grid-template-columns: 1fr; }
 }
+
+/* ==============================================
+   APP DETAIL PAGE — DARK MODERN REDESIGN
+   body.app-page scoped — consistent with home
+   Uses --ar, --ag, --ab for per-app accent RGB
+   ============================================== */
+
+body.app-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 72px 20px 48px;
+  background: #0c0c0f;
+  color: #e8e4de;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+body.app-page::before {
+  display: none;
+}
+
+/* Accent blobs (inherit --ar/--ag/--ab from body inline style) */
+.app-blob-1 {
+  background: rgba(var(--ar, 124), var(--ag, 106), var(--ab, 246), 1);
+  opacity: 0.13;
+  width: 560px;
+  height: 560px;
+  top: -180px;
+  left: -150px;
+  animation: blob1 22s ease-in-out infinite;
+}
+
+.app-blob-2 {
+  background: rgba(var(--ar, 124), var(--ag, 106), var(--ab, 246), 1);
+  opacity: 0.07;
+  width: 360px;
+  height: 360px;
+  bottom: -100px;
+  right: -80px;
+  animation: blob3 28s ease-in-out infinite;
+}
+
+/* Back navigation */
+.back-link {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(232, 228, 222, 0.42);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  padding: 7px 14px 7px 10px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+}
+
+.back-link:hover {
+  color: rgba(232, 228, 222, 0.88);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Dark card */
+body.app-page .card {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Logo wrap — accent glow using rgb vars */
+body.app-page .logo-wrap {
+  clip-path: none;
+  background: rgba(var(--ar, 124), var(--ag, 106), var(--ab, 246), 0.12);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 48px rgba(var(--ar, 124), var(--ag, 106), var(--ab, 246), 0.22);
+}
+
+/* Text overrides */
+body.app-page h1 {
+  color: #e8e4de;
+  font-family: "Playfair Display", serif;
+}
+
+body.app-page p {
+  color: rgba(232, 228, 222, 0.55);
+  text-align: center;
+}
+
+body.app-page .release-date {
+  color: rgba(232, 228, 222, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 100px;
+  padding: 4px 14px;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+}
+
+body.app-page .status {
+  color: rgba(232, 228, 222, 0.4);
+}
+
+/* Store buttons — glassmorphism */
+body.app-page .store-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #e8e4de;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body.app-page .store-btn:hover {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+body.app-page .store-btn.recommended {
+  background: rgba(var(--ar, 124), var(--ag, 106), var(--ab, 246), 0.18);
+  border-color: rgba(var(--ar, 124), var(--ag, 106), var(--ab, 246), 0.45);
+  box-shadow: 0 8px 24px rgba(var(--ar, 124), var(--ag, 106), var(--ab, 246), 0.2);
+}
+
+body.app-page .store-btn.recommended:hover {
+  background: rgba(var(--ar, 124), var(--ag, 106), var(--ab, 246), 0.26);
+  border-color: rgba(var(--ar, 124), var(--ag, 106), var(--ab, 246), 0.6);
+  box-shadow: 0 12px 32px rgba(var(--ar, 124), var(--ag, 106), var(--ab, 246), 0.3);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .app-blob-1,
+  .app-blob-2 { animation: none; }
+}

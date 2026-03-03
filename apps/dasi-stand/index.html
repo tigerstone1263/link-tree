@@ -5,31 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dasi Stand</title>
   <meta property="og:title" content="Dasi Stand" />
-  <meta property="og:description" content="Discover the app on your store." />
-  <meta property="og:image" content="assets/logo-placeholder.svg" />
+  <meta property="og:description" content="Beyond progressive, conservative, and centrist — a balanced perspective on the world." />
+  <meta property="og:image" content="assets/new_app_icon.png" />
   <meta property="og:image:alt" content="Dasi Stand logo" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="assets/logo-placeholder.svg" />
+  <meta name="twitter:image" content="assets/new_app_icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../shared/style.css" />
 </head>
-<body>
+<body class="app-page" style="--accent: #d39a3e; --ar: 211; --ag: 154; --ab: 62">
+
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="blob app-blob-1"></div>
+    <div class="blob app-blob-2"></div>
+  </div>
+
+  <a class="back-link" href="../../">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    All Projects
+  </a>
+
   <main class="card">
     <div class="logo-wrap" aria-hidden="true">
-      <img id="appLogo" src="assets/logo-placeholder.svg" alt="Dasi Stand logo" />
+      <img id="appLogo" src="assets/new_app_icon.png" alt="Dasi Stand logo" />
     </div>
     <h1 id="pageTitle">Dasi Stand</h1>
-    <p id="pageDescription">Discover the app on your store.</p>
-    <p id="releaseDate" class="release-date"></p>
+    <p id="pageDescription">Beyond progressive, conservative, and centrist — a balanced perspective on the world.</p>
+    <p id="releaseDate" class="release-date" hidden></p>
 
     <div class="buttons">
-      <a class="store-btn" id="appStoreBtn" href="https://apps.apple.com/app/id0000000000" aria-label="Open in the App Store">
+      <a class="store-btn" id="appStoreBtn" href="https://apps.apple.com/us/app/app-store/id6748309466?pt=125213920&ct=link_tree&mt=8" aria-label="Open in the App Store">
         <span class="icon" aria-hidden="true">
           <img src="../../shared/assets/appStore.jpeg" alt="" />
         </span>
         <span class="label">App Store</span>
       </a>
-      <a class="store-btn secondary" id="playStoreBtn" href="https://play.google.com/store/apps/details?id=com.example.app" aria-label="Open in the Play Store">
+      <a class="store-btn secondary" id="playStoreBtn" href="https://play.google.com/store/apps/details?id=com.PassionDev.DasiStand&referrer=utm_source%3Dlink_tree" aria-label="Open in the Play Store">
         <span class="icon" aria-hidden="true">
           <img src="../../shared/assets/playStore.png" alt="" />
         </span>
