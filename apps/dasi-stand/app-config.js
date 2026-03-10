@@ -2,6 +2,7 @@ window.APP_CONFIG = {
   title: "Dasi Stand",
   description: "Beyond progressive, conservative, and centrist labels, a balanced perspective on the world.",
   releaseDate: "2025",
+  downloads: "6,000+",
   logoSrc: "assets/new_app_icon.png",
   logoAlt: "Dasi Stand logo",
   appStore: {

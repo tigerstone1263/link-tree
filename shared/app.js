@@ -20,6 +20,7 @@
     title: config.title || fallbackConfig.title,
     description: config.description || fallbackConfig.description,
     releaseDate: config.releaseDate || fallbackConfig.releaseDate,
+    downloads: config.downloads || "",
     logoSrc: config.logoSrc || fallbackConfig.logoSrc,
     logoAlt: config.logoAlt || fallbackConfig.logoAlt,
     appStore: {
@@ -38,6 +39,7 @@
   const pageTitle = document.getElementById("pageTitle");
   const pageDescription = document.getElementById("pageDescription");
   const releaseDateEl = document.getElementById("releaseDate");
+  const downloadsEl = document.getElementById("pageDownloads");
   const logoImg = document.getElementById("appLogo");
 
   if (pageTitle) pageTitle.textContent = resolvedConfig.title;
@@ -49,6 +51,14 @@
     } else {
       releaseDateEl.textContent = "";
       releaseDateEl.hidden = true;
+    }
+  }
+  if (downloadsEl) {
+    if (resolvedConfig.downloads) {
+      downloadsEl.textContent = `↓ ${resolvedConfig.downloads} downloads`;
+      downloadsEl.hidden = false;
+    } else {
+      downloadsEl.hidden = true;
     }
   }
   if (resolvedConfig.title) document.title = resolvedConfig.title;
