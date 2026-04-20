@@ -2,7 +2,7 @@ window.APP_CONFIG = {
   title: "Absolute Ear",
   description: "Train Your Absolute & Relative Pitch",
   releaseDate: "2024",
-  downloads: "8,000+",
+  downloads: "8,600+",
   logoSrc: "assets/logo512.jpg",
   logoAlt: "Absolute Ear logo",
   appStore: {
