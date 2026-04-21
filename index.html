@@ -1,212 +1,897 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TigerStone1263 — Developer</title>
-  <meta property="og:title" content="TigerStone1263" />
-  <meta property="og:description" content="Project list for TigerStone apps." />
-  <meta property="og:image" content="shared/assets/tigerstone3_Developer.png" />
-  <meta property="og:image:alt" content="TigerStone Developer" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="shared/assets/tigerstone3_Developer.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="shared/style.css" />
-</head>
-<body class="home">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>정범석 · 앱기획 포트폴리오 — 메가스터디교육 메력3기</title>
+<meta name="description" content="비전공자로 독학해 4년간 학습·교육 앱 네 개를 직접 출시·운영해 온 1인 앱 기획자 정범석의 포트폴리오.">
+<meta property="og:title" content="정범석 · 앱기획 포트폴리오">
+<meta property="og:description" content="비전공자로 독학해 4년간 학습·교육 앱 네 개를 직접 출시·운영. 누적 35,400명 사용자.">
+<meta property="og:image" content="portfolio_assets/common/profile.jpeg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="portfolio_assets/common/profile.jpeg">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  :root {
+    --primary: #0052A4;
+    --navy: #1A3A6E;
+    --accent-light: #E3EEF8;
+    --surface: #F8FAFC;
+    --text: #1f2933;
+    --text-sub: #52606d;
+    --divider: #e4e7eb;
+  }
+  html, body { background: #ffffff; }
+  body {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+    color: var(--text);
+    line-height: 1.5;
+    font-size: 10.5pt;
+    margin: 0;
+    padding: 0;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 9mm 12mm;
+    background: #ffffff;
+    page-break-after: always;
+    position: relative;
+  }
+  .page:last-child { page-break-after: auto; }
+  @media screen {
+    .page { margin-bottom: 12mm; box-shadow: 0 0 8px rgba(0,0,0,0.08); }
+  }
+  h1 { margin: 0; font-weight: 700; }
+  h2 {
+    font-size: 15pt;
+    color: var(--primary);
+    margin: 0 0 12px 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--primary);
+    letter-spacing: -0.3px;
+  }
+  h3 {
+    font-size: 12pt;
+    color: var(--navy);
+    margin: 14px 0 6px 0;
+  }
+  h4 {
+    font-size: 11pt;
+    color: var(--text);
+    margin: 10px 0 4px 0;
+  }
+  p { margin: 4px 0; }
+  a { color: var(--primary); text-decoration: none; }
 
-  <!-- Animated gradient blobs -->
-  <div class="bg-canvas" aria-hidden="true">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+  /* ===== Cover ===== */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40mm 10mm;
+    background: linear-gradient(160deg, #ffffff 0%, var(--accent-light) 100%);
+  }
+  .cover .brand {
+    font-size: 14pt;
+    color: var(--text-sub);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .cover .title {
+    font-size: 32pt;
+    color: var(--primary);
+    font-weight: 800;
+    margin: 4px 0;
+    letter-spacing: -1px;
+  }
+  .cover .subtitle {
+    font-size: 14pt;
+    color: var(--navy);
+    margin: 16px 0 24px 0;
+  }
+  .cover .tagline {
+    font-size: 12pt;
+    color: var(--text-sub);
+    max-width: 500px;
+    line-height: 1.7;
+    margin: 20px auto;
+  }
+  .cover .meta {
+    margin-top: 40px;
+    font-size: 10.5pt;
+    color: var(--text);
+  }
+  .cover .meta a { font-weight: 600; }
+  .cover .divider {
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    margin: 16px auto;
+  }
+
+  /* ===== About ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 16px;
+  }
+  .profile-photo {
+    width: 120px;
+    height: 150px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid var(--divider);
+  }
+  .identity-block .label {
+    font-size: 10pt;
+    color: var(--text-sub);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .identity-block h1 {
+    font-size: 22pt;
+    color: var(--navy);
+    margin: 0 0 6px 0;
+  }
+  .identity-block .title-line {
+    font-size: 12pt;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .keyword-row { margin-top: 8px; }
+  .keyword {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--primary);
+    font-size: 9.5pt;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .contact-row {
+    margin-top: 10px;
+    font-size: 10pt;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+  .contact-row strong { color: var(--text); }
+
+  /* Timeline */
+  .timeline {
+    margin-top: 18px;
+    border-left: 3px solid var(--primary);
+    padding-left: 16px;
+  }
+  .timeline-item {
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--primary);
+  }
+  .timeline-item .period {
+    font-size: 9pt;
+    color: var(--text-sub);
+    letter-spacing: 0.3px;
+  }
+  .timeline-item .title-txt {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .timeline-item .desc {
+    font-size: 9.5pt;
+    color: var(--text-sub);
+    margin-top: 2px;
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 18px;
+    font-size: 10pt;
+    margin-top: 10px;
+  }
+  .skill-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted var(--divider);
+    padding: 3px 0;
+  }
+  .skill-row .label { font-weight: 600; color: var(--text); }
+  .skill-row .value { color: var(--text-sub); font-size: 9.5pt; }
+
+  /* ===== JD Match Table ===== */
+  .jd-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+    margin-top: 10px;
+  }
+  .jd-table th {
+    background: var(--primary);
+    color: #fff;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 10pt;
+  }
+  .jd-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--divider);
+    vertical-align: top;
+  }
+  .jd-table tr:nth-child(even) td { background: var(--surface); }
+  .jd-table td:first-child {
+    font-weight: 600;
+    color: var(--navy);
+    width: 32%;
+  }
+
+  /* ===== Project Card ===== */
+  .project-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary);
+    margin-bottom: 14px;
+  }
+  .project-header .icon-box {
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--surface);
+    border: 1px solid var(--divider);
+  }
+  .project-header .icon-box img { width: 100%; height: 100%; object-fit: cover; }
+  .project-header .meta-block { flex: 1; }
+  .project-header h2 {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 20pt;
+    color: var(--primary);
+  }
+  .project-header .period-role {
+    font-size: 10pt;
+    color: var(--text-sub);
+    margin-top: 3px;
+  }
+  .project-header .tag-row { margin-top: 6px; }
+  .tag {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--primary);
+    font-size: 9pt;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-right: 4px;
+    font-weight: 600;
+  }
+
+  /* Series grid for TigerStone apps */
+  .series-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .series-card {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+  }
+  .series-card .mini-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    margin: 0 auto 6px auto;
+    display: block;
+    object-fit: cover;
+  }
+  .series-card .s-name { font-size: 10.5pt; font-weight: 700; color: var(--navy); }
+  .series-card .s-year { font-size: 9pt; color: var(--text-sub); }
+  .series-card .s-dl {
+    font-size: 10pt;
+    color: var(--primary);
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  /* STAR-S blocks */
+  .star-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--divider);
+  }
+  .star-row:last-child { border: none; }
+  .star-label {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .star-content { font-size: 10pt; color: var(--text); line-height: 1.55; }
+  .star-content ul { margin: 4px 0 4px 16px; padding: 0; }
+  .star-content li { margin-bottom: 2px; }
+  .star-content strong { color: var(--primary); }
+
+  /* Metric cards */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .metric-card {
+    background: linear-gradient(145deg, var(--accent-light) 0%, #ffffff 100%);
+    border: 1px solid var(--divider);
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .metric-card .mv {
+    font-size: 15pt;
+    font-weight: 800;
+    color: var(--primary);
+    display: block;
+  }
+  .metric-card .ml {
+    font-size: 9pt;
+    color: var(--text-sub);
+    margin-top: 2px;
+    display: block;
+  }
+
+  /* Screenshot gallery */
+  .screens {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    margin: 10px 0;
+  }
+  .screens.four { grid-template-columns: repeat(4, 1fr); }
+  .screens img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid var(--divider);
+    object-fit: cover;
+  }
+
+  /* ===== Sub Project ===== */
+  .sub-project {
+    background: var(--surface);
+    border-left: 4px solid var(--primary);
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-radius: 6px;
+  }
+  .sub-project h3 { margin-top: 0; }
+
+  /* Print rules */
+  @media print {
+    .page { margin: 0; box-shadow: none; }
+    body { font-size: 10pt; }
+    h2 { page-break-after: avoid; }
+    .star-row, .project-header, .series-card, .metric-card { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =================== PAGE 1 · COVER =================== -->
+<section class="page cover">
+  <div class="brand">앱기획 인턴 지원 포트폴리오</div>
+  <h1 class="title">정범석</h1>
+  <div class="divider"></div>
+  <p class="subtitle">Beom Seok Chung</p>
+  <p class="tagline">
+    비전공자로 독학해 4년간 학습·교육 앱 네 개를 직접 출시·운영하며,<br>
+    누적 35,400명 넘는 사용자와 함께 제품을 다듬어 왔습니다.
+  </p>
+  <div class="meta">
+    메가스터디교육 메력3기 앱기획 인턴 지원 · 2026.04<br>
+    <a href="https://tigerstone1263.com">tigerstone1263.com</a> · 00fanxi@gmail.com · 010-8615-0607
+  </div>
+</section>
+
+<!-- =================== PAGE 2 · ABOUT ME =================== -->
+<section class="page">
+  <h2>제 소개</h2>
+  <div class="about-grid">
+    <img class="profile-photo" src="portfolio_assets/common/profile.jpeg" alt="정범석">
+    <div class="identity-block">
+      <div class="label">앱 기획자</div>
+      <h1>정범석 <span style="font-size:12pt; color:var(--text-sub); font-weight:400;">鄭氾晳 · Beom Seok Chung</span></h1>
+      <div class="title-line">학습·교육 앱을 4년간 직접 기획·운영해온 앱 기획자</div>
+      <div class="keyword-row">
+        <span class="keyword">음악 교육 앱 3개 + 뉴스 앱 1개 출시·운영</span>
+        <span class="keyword">데이터 기반 기획</span>
+        <span class="keyword">비전공자 독학 개발</span>
+      </div>
+      <div class="contact-row">
+        <strong>연락처</strong> 010-8615-0607 &nbsp;·&nbsp; <strong>이메일</strong> 00fanxi@gmail.com<br>
+        <strong>포트폴리오</strong> <a href="https://tigerstone1263.com">tigerstone1263.com</a><br>
+        <strong>주요 경력</strong> 해병대 연평부대 정보통신 · 표창 · SK China 대외전략팀 인턴 · AI·SW 마에스트로 팀장 · UC Berkeley AI+Entrepreneurship 수료
+      </div>
+    </div>
   </div>
 
-  <!-- Cursor spotlight -->
-  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+  <div style="background:var(--surface); border-left:3px solid var(--primary); padding:12px 14px; border-radius:6px; margin:14px 0; font-size:10.5pt; line-height:1.65;">
+    <strong style="color:var(--primary);">비전공자 독학으로 시작한 기획·개발</strong><br>
+    국제정치경제학 전공생으로 출발했지만, <strong>해병대 복무 중 중대 근무표 편성에서 반복되던 갈등</strong>을 풀기 위해 주말 이틀 동안 코딩을 독학해 근무표 생성 웹을 만든 것이 기획·개발의 출발점이었습니다. 이 프로그램이 부대 표준 도구가 되면서 네트워크 관리 웹사이트 개발까지 정식 의뢰받았고, 전역 후에는 화성학 독학 중 느낀 개인 불편을 풀기 위해 Flutter를 익혀 TigerStone 시리즈를 출시해 4년간 사용자 목소리와 데이터를 근거로 시리즈를 확장해 왔습니다. "기획자는 사용자의 문제를 데이터로 읽어내는 사람"이라는 감각이 그 과정에서 몸에 배었습니다.
+  </div>
 
-  <main class="site-main">
+  <h3>걸어온 길</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="period">2026.01 — 2026.02</div>
+      <div class="title-txt">UC Berkeley · AI + Entrepreneurship Immersion Program</div>
+      <div class="desc">GTM 전략, 고객 세그먼트, 퍼널 개선, IR 피칭 방법론 학습 · CES 2026 참관 · 실리콘밸리 현직자 멘토링</div>
+    </div>
+    <div class="timeline-item">
+      <div class="period">2025.04 — 2026.02</div>
+      <div class="title-txt">AI·SW 마에스트로 · 팀장 · 우수자 선정</div>
+      <div class="desc">뉴스 비교·분석 앱 Dasi Stand 기획·개발·마케팅·IR 총괄 · 팀장으로 개발 3명·디자인 1명·멘토 3명과 협업</div>
+    </div>
+    <div class="timeline-item">
+      <div class="period">2024.07 — 2025.01 (6개월 7일)</div>
+      <div class="title-txt">SK China 대외전략팀 · 인턴 (3→6개월 연장)</div>
+      <div class="desc">중국 정치·경제·지정학·산업 동향 리서치 · 업무 자동화 GUI 툴 개발</div>
+    </div>
+    <div class="timeline-item">
+      <div class="period">2022.03 — 현재</div>
+      <div class="title-txt">TigerStone1263 · 1인 앱 개발자/기획자</div>
+      <div class="desc">Absolute Pitch · Absolute Ear · Pitch Runner 3개 앱 기획·개발·운영 (Dasi Stand는 별도 팀 프로젝트)</div>
+    </div>
+    <div class="timeline-item">
+      <div class="period">2020.10 — 2022.04</div>
+      <div class="title-txt">해병대 연평부대 · 정보통신 · 병장 · 만기제대</div>
+      <div class="desc">비전공자로 독학해 근무표 생성 웹·네트워크 관리 (선번장) 웹사이트 개발 · 영관급 정보통신업무유공 표창</div>
+    </div>
+    <div class="timeline-item">
+      <div class="period">2019.09 — 2025.06 (졸업)</div>
+      <div class="title-txt">북경대학교 국제정치경제학 학부</div>
+      <div class="desc">중국 11년 유학 · 원어민 수준 중국어 · 졸업논문 <em>Personal Data Collection and National Security Risks</em></div>
+    </div>
+  </div>
 
-    <!-- Hero Section -->
-    <header class="hero" id="hero">
-      <div class="avatar-wrap">
-        <div class="avatar-ring"></div>
-        <img class="avatar" src="shared/assets/tigerstone3_Developer.png" alt="TigerStone Developer" />
+  <h3>보유 기술</h3>
+  <div class="skills-grid">
+    <div class="skill-row"><span class="label">기획·협업</span><span class="value">Jira · Confluence · Figma · Notion</span></div>
+    <div class="skill-row"><span class="label">데이터 분석</span><span class="value">Amplitude · GA · Clarity · SQL · Python</span></div>
+    <div class="skill-row"><span class="label">앱 개발</span><span class="value">Flutter / Dart · Firebase · Supabase</span></div>
+    <div class="skill-row"><span class="label">웹 개발</span><span class="value">Node.js · JavaScript · MongoDB</span></div>
+    <div class="skill-row"><span class="label">마케팅</span><span class="value">Google Ads · Apple Ads · 인플루언서 세일즈</span></div>
+    <div class="skill-row"><span class="label">어학</span><span class="value">중국어 Authentic · 영어 OPIc IH</span></div>
+  </div>
+</section>
+
+<!-- =================== PAGE 3 · JD MATCHING =================== -->
+<section class="page">
+  <h2>앱기획 인턴 담당업무와 제 경험</h2>
+  <p style="color:var(--text-sub); font-size:10pt; margin-bottom:10px;">
+    공고의 담당업무 여섯 가지에 대해, 제가 지난 4년간 실제로 <strong>마주친 문제 · 내린 결정 · 만든 결과</strong>를 나란히 놓아보았습니다.
+  </p>
+  <table class="jd-table">
+    <thead>
+      <tr>
+        <th style="width:30%;">담당업무</th>
+        <th>제가 마주친 문제 → 내린 결정 → 만든 결과</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>학습 앱 신규 기능 및 콘텐츠 기획</td>
+        <td>
+          <strong>문제</strong> Absolute Ear 사용자 설문에서 취미 사용자가 <em>"뭐부터 해야 할지 모르겠다"</em>·<em>"이론 지식이 부족하다"</em>는 불만을 많이 남겼습니다.<br>
+          <strong>결정</strong> 온보딩에 <strong>사용자 수준 진단</strong>을 넣어 맞춤 커리큘럼을 자동 제안하도록 재설계하고, 기존에 없던 <strong>화성학 이론 세션</strong>을 신규 콘텐츠로 추가했습니다.<br>
+          <strong>결과</strong> TigerStone 시리즈 누적 29,400+ 다운로드, Educational App Store 교사 평점 5.0 유지.
+        </td>
+      </tr>
+      <tr>
+        <td>경쟁 서비스 분석·시장 리서치</td>
+        <td>
+          <strong>문제</strong> 새 앱을 낼 때마다 기존 음악 교육 앱들의 기능·리뷰를 체계적으로 정리할 필요가 있었습니다.<br>
+          <strong>결정</strong> 경쟁 앱들의 기능·리뷰·업데이트 주기를 <strong>포지셔닝 맵</strong>으로 정리하고, 사용자 설문으로 타겟 구조(<strong>취미 65%·입시/전공 25%</strong>)를 검증했습니다.<br>
+          <strong>결과</strong> 이 구조를 근거로 Absolute Ear의 온보딩·이론 세션 방향을 확정했습니다.
+        </td>
+      </tr>
+      <tr>
+        <td>UX·UI 개선 아이디어 도출</td>
+        <td>
+          <strong>문제</strong> Dasi Stand 출시 직후 Amplitude 퍼널·Clarity 히트맵에서 <strong>메인 화면 체류시간이 상세 화면보다 더 길다</strong>는 역전 현상이 보였습니다.<br>
+          <strong>결정</strong> "상세로 못 내려간다"가 아니라 "메인에서 이미 원하는 걸 얻고 있다"로 가설을 뒤집고, Figma로 정보 구조와 UI를 전면 개편했습니다.<br>
+          <strong>결과</strong> 3개월·15번의 업데이트로 체류 시간 4분 → 8분 30초, 7일 리텐션 20% → 42%.
+        </td>
+      </tr>
+      <tr>
+        <td>이벤트·마케팅 캠페인 기획</td>
+        <td>
+          <strong>문제</strong> 유료 광고 효율과 자연 유입 채널을 동시에 확보해야 했습니다.<br>
+          <strong>결정</strong> Google Ads·Apple Ads 에셋을 직접 제작해 운영하고, TigerStone 시리즈는 <strong>해외 인플루언서 콜드 메일</strong>로 자연 유입 채널을 열었습니다.<br>
+          <strong>결과</strong> Dasi Stand CPI ₩800·전환율 30% 3개월 유지, 영국 120만 구독 음악 유튜버 <strong>David Bennett</strong>와 국내 20만 구독 피아노 유튜버 <strong>Sofa4844</strong> 협업 성사.
+        </td>
+      </tr>
+      <tr>
+        <td>앱 운영 데이터 분석·개선안 도출</td>
+        <td>
+          <strong>문제</strong> TigerStone 시리즈 초기 월매출이 1달러 수준에 오래 머물러 있었고, 이탈 근거가 없었습니다.<br>
+          <strong>결정</strong> <strong>Amplitude 퍼널·Clarity 히트맵·사용자 설문</strong>을 병행해 이탈 구간과 불만을 정리했고, 이를 Absolute Ear 온보딩 개편에 반영했습니다.<br>
+          <strong>결과</strong> Absolute Ear 출시 이후 <strong>TigerStone 시리즈 월매출 1달러 → 770달러</strong>. 같은 분석 방식을 Dasi Stand에도 적용해 7일 리텐션 20% → 42%.
+        </td>
+      </tr>
+      <tr>
+        <td>QA 테스트·서비스 품질 관리</td>
+        <td>
+          <strong>문제</strong> 1인 운영으로 업데이트마다 품질과 사용자 신뢰를 지켜야 했습니다.<br>
+          <strong>결정</strong> 분기 업데이트 전 스토어 리뷰·DM을 정리해 우선순위를 정하고, changelog를 사용자 언어로 공개했습니다.<br>
+          <strong>결과</strong> TigerStone 시리즈 3종을 최장 4년 지속 운영, Educational App Store 교사 평점 5.0 유지.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top:18px;">지난 4년의 발자취</h3>
+  <div class="metrics-row" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="metric-card">
+      <span class="mv">4개</span>
+      <span class="ml">직접 출시·운영한 앱</span>
+    </div>
+    <div class="metric-card">
+      <span class="mv">35,400+</span>
+      <span class="ml">누적 다운로드</span>
+    </div>
+    <div class="metric-card">
+      <span class="mv">5.0 / 5.0</span>
+      <span class="ml">Educational App Store 교사 평점</span>
+    </div>
+  </div>
+  <p style="font-size:10pt; margin-top:10px; color:var(--text-sub); line-height:1.7;">
+    학습 앱을 <strong style="color:var(--primary);">직접 기획하고 출시해 사용자·매출·평점·데이터를 스스로 만들어 본 4년</strong>이, 앱기획 자리에 가장 곧바로 쓰일 수 있는 제 경험이라고 생각합니다.
+  </p>
+</section>
+
+<!-- =================== PAGE 4 · TigerStone 시리즈 통합 (AP · AE · PR) =================== -->
+<section class="page">
+  <div class="project-header">
+    <div class="icon-box" style="display:flex; align-items:center; justify-content:center; background:transparent; border:none; gap:4px; width:auto; height:auto;">
+      <img src="portfolio_assets/icons/absolute-pitch.png" alt="Absolute Pitch" style="width:42px; height:42px; border-radius:9px; border:1px solid var(--divider);">
+      <img src="portfolio_assets/icons/absolute-ear.jpg" alt="Absolute Ear" style="width:42px; height:42px; border-radius:9px; border:1px solid var(--divider);">
+      <img src="portfolio_assets/icons/pitch-runner.png" alt="Pitch Runner" style="width:42px; height:42px; border-radius:9px; border:1px solid var(--divider);">
+    </div>
+    <div class="meta-block">
+      <h2>TigerStone1263 음악 교육 앱 시리즈</h2>
+      <div class="period-role">2022.03 — 현재 · 1인 기획·개발·운영 · Absolute Pitch · Absolute Ear · Pitch Runner</div>
+      <div class="tag-row">
+        <span class="tag">3개 앱 · 4년 운영</span>
+        <span class="tag">30,000+ 다운로드</span>
+        <span class="tag">교사 평점 5.0</span>
+        <span class="tag">Flutter · Firebase</span>
       </div>
-      <p class="hero-eyebrow">Hello, I'm</p>
-      <h1 class="hero-name">Tiger<span class="gradient-text">Stone1263</span></h1>
-      <div class="hero-divider"></div>
-      <p class="hero-bio">A developer who dreams of a world where music can be heard like language, and spoken like a voice.</p>
-    </header>
+    </div>
+  </div>
 
-    <!-- Projects Section -->
-    <section class="projects" aria-label="Projects">
-      <p class="section-label">Projects</p>
-      <div class="projects-grid">
+  <div class="series-grid" style="grid-template-columns: repeat(3, 1fr); margin-top:8px;">
+    <div class="series-card" style="border-top:3px solid #3a8d8f;">
+      <img class="mini-icon" src="portfolio_assets/icons/absolute-pitch.png" alt="Absolute Pitch">
+      <div class="s-name">Absolute Pitch</div>
+      <div class="s-year">2022 · 리드 앱</div>
+      <div class="s-dl">21,400+</div>
+    </div>
+    <div class="series-card" style="border-top:3px solid #7c6af6;">
+      <img class="mini-icon" src="portfolio_assets/icons/absolute-ear.jpg" alt="Absolute Ear">
+      <div class="s-name">Absolute Ear</div>
+      <div class="s-year">2024 · 확장 앱</div>
+      <div class="s-dl">8,600+</div>
+    </div>
+    <div class="series-card" style="border-top:3px solid #00c4e8;">
+      <img class="mini-icon" src="portfolio_assets/icons/pitch-runner.png" alt="Pitch Runner">
+      <div class="s-name">Pitch Runner</div>
+      <div class="s-year">2026 · 신작</div>
+      <div class="s-dl" style="font-size:9pt; color:var(--text-sub);">출시 중</div>
+    </div>
+  </div>
 
-        <a class="proj-card" href="apps/pitch-runner/" style="--accent: #00c4e8">
-          <div class="card-glow" aria-hidden="true"></div>
-          <div class="card-top-line" aria-hidden="true"></div>
-          <div class="card-inner">
-            <div class="card-header">
-              <div class="app-icon-wrap">
-                <img class="app-icon" src="apps/pitch-runner/assets/appIcon.png" alt="" />
-              </div>
-              <span class="year-badge">2026</span>
-            </div>
-            <div class="card-body">
-              <h3 class="app-name">Pitch Runner</h3>
-              <p class="app-desc">Sprint your way to Perfect Pitch!</p>
-              <p class="app-downloads">↓ 100+ downloads</p>
-            </div>
-            <div class="card-footer">
-              <span class="store-tag ios">iOS</span>
-              <span class="store-tag android">Android</span>
-              <span class="card-arrow" aria-hidden="true">→</span>
-            </div>
-          </div>
-        </a>
+  <h3>WHY</h3>
+  <p style="font-size:10.5pt; line-height:1.6; margin:4px 0 8px 0;">
+    화성학을 <strong>비전공자로 독학하던 개인 불편</strong>에서 출발했습니다. 기존 음악 교육 앱에 "절대음감 훈련만 몰입할 수 있는 앱"이 없다는 것을 직접 느끼고 이 문제를 풀어보기로 했습니다.
+  </p>
 
-        <a class="proj-card" href="apps/dasi-stand/" style="--accent: #d39a3e">
-          <div class="card-glow" aria-hidden="true"></div>
-          <div class="card-top-line" aria-hidden="true"></div>
-          <div class="card-inner">
-            <div class="card-header">
-              <div class="app-icon-wrap">
-                <img class="app-icon" src="apps/dasi-stand/assets/new_app_icon.png" alt="" />
-              </div>
-              <span class="year-badge">2025</span>
-            </div>
-            <div class="card-body">
-              <h3 class="app-name">Dasi Stand</h3>
-              <p class="app-desc">Beyond progressive, conservative, and centrist — a balanced perspective on the world.</p>
-              <p class="app-downloads">↓ 6,000+ downloads</p>
-            </div>
-            <div class="card-footer">
-              <span class="store-tag ios">iOS</span>
-              <span class="store-tag android">Android</span>
-              <span class="card-arrow" aria-hidden="true">→</span>
-            </div>
-          </div>
-        </a>
+  <h3>HOW</h3>
+  <div class="star-row">
+    <div class="star-label">정체기</div>
+    <div class="star-content">
+      2022년 첫 앱 Absolute Pitch 출시 후 <strong>월매출 1달러 수준</strong>의 정체기가 길어졌습니다. 첫 앱이라 기획 경험이 부족했고, 사용자 리뷰는 쌓이는데 무엇을 바꿔야 할지 체계가 없었습니다.
+    </div>
+  </div>
+  <div class="star-row">
+    <div class="star-label">근거 수집</div>
+    <div class="star-content">
+      2025년 하반기 AE 기획 단계에서 <strong>Amplitude 퍼널 분석</strong>과 <strong>사용자 설문(외국인 468·한국인 186명, 총 654명)</strong>을 병행했습니다. 사용자 구조가 <strong>취미 65% · 입시/전공/프로/교사 25%</strong>로 나뉘고, 취미층이 <em>"뭐부터 해야 할지 모르겠다"</em>·<em>"화성학 이론 지식이 부족하다"</em>는 불만을 많이 남긴다는 것을 확인했습니다.
+    </div>
+  </div>
+  <div class="star-row">
+    <div class="star-label">핵심 결정</div>
+    <div class="star-content">
+      "기능을 더 추가"가 아니라 <strong>사용자가 시작점을 스스로 찾을 수 있게 돕자</strong>로 방향을 잡았습니다. <strong>Absolute Ear</strong>를 독립 앱으로 분화해 <strong>수준 진단 온보딩 + 맞춤 커리큘럼 + 화성학 이론 세션</strong>을 신규 설계했고, AP와 UI·상호작용을 공유해 기존 사용자 전환 비용을 낮췄습니다. 이어서 "짧은 시간에 반복 훈련하고 싶다"는 요청을 반영해 <strong>Pitch Runner</strong>(2026 신작)를 <strong>5분 게임 러닝 메커닉</strong>으로 설계했습니다.
+    </div>
+  </div>
 
-        <a class="proj-card" href="apps/absolute-ear/" style="--accent: #7c6af6">
-          <div class="card-glow" aria-hidden="true"></div>
-          <div class="card-top-line" aria-hidden="true"></div>
-          <div class="card-inner">
-            <div class="card-header">
-              <div class="app-icon-wrap">
-                <img class="app-icon" src="apps/absolute-ear/assets/logo512.jpg" alt="" />
-              </div>
-              <span class="year-badge">2024</span>
-            </div>
-            <div class="card-body">
-              <h3 class="app-name">Absolute Ear</h3>
-              <p class="app-desc">Train your absolute &amp; relative pitch with interactive ear training exercises.</p>
-              <p class="app-downloads">↓ 8,600+ downloads</p>
-            </div>
-            <div class="card-footer">
-              <span class="store-tag ios">iOS</span>
-              <span class="store-tag android">Android</span>
-              <span class="card-arrow" aria-hidden="true">→</span>
-            </div>
-          </div>
-        </a>
+  <h3>WHAT</h3>
+  <div class="star-row">
+    <div class="star-label">결과</div>
+    <div class="star-content">
+      AE 출시 이후 <strong>TigerStone 시리즈 월매출이 1달러 → 770달러</strong>로 올라가고, 영국 120만 구독 음악 유튜버 <strong>David Bennett</strong>·국내 20만 구독 피아노 유튜버 <strong>Sofa4844</strong>와의 콘텐츠 협업도 이 시기에 성사되었습니다. AP·AE·PR 3개 앱으로 분화한 결과 시리즈 전체로 <strong>누적 30,000+ 다운로드</strong>와 Educational App Store <strong>교사 평점 5.0</strong>을 4년간 유지하고 있습니다.
+    </div>
+  </div>
 
-        <a class="proj-card" href="apps/absolute-pitch/" style="--accent: #3a8d8f">
-          <div class="card-glow" aria-hidden="true"></div>
-          <div class="card-top-line" aria-hidden="true"></div>
-          <div class="card-inner">
-            <div class="card-header">
-              <div class="app-icon-wrap">
-                <img class="app-icon" src="apps/absolute-pitch/assets/appIcon.png" alt="" />
-              </div>
-              <span class="year-badge">2022</span>
-            </div>
-            <div class="card-body">
-              <h3 class="app-name">Absolute Pitch</h3>
-              <p class="app-desc">Gradually improve absolute pitch from notes to tension chords, 251 voicings, and mode scales.</p>
-              <p class="app-downloads">↓ 21,400+ downloads</p>
-            </div>
-            <div class="card-footer">
-              <span class="store-tag ios">iOS</span>
-              <span class="store-tag android">Android</span>
-              <span class="card-arrow" aria-hidden="true">→</span>
-            </div>
-          </div>
-        </a>
+  <div class="screens four" style="margin-top:8px;">
+    <img src="portfolio_assets/absolute-ear/1.jpg" alt="AE screen 1">
+    <img src="portfolio_assets/absolute-ear/Artboard 02.jpg" alt="AE screen 2">
+    <img src="portfolio_assets/absolute-ear/Artboard 04.jpg" alt="AE screen 3">
+    <img src="portfolio_assets/absolute-ear/Artboard 06.jpg" alt="AE screen 4">
+  </div>
 
+  <p style="font-size:9.5pt; margin-top:8px;">
+    <strong>앱 링크 · Absolute Pitch</strong> <a href="https://apps.apple.com/app/apple-store/id1636530380?pt=125213920&ct=link_tree&mt=8">iOS</a> · <a href="https://play.google.com/store/apps/details?id=com.TigerStone.AbsolutePitch">Android</a> ·
+    <strong>Absolute Ear</strong> <a href="https://apps.apple.com/app/apple-store/id6739764701?pt=125213920&ct=tigerstone/link_tree&mt=8">iOS</a> · <a href="https://play.google.com/store/apps/details?id=com.tigerstone.AbsoluteEar&referrer=utm_source%3Dlink_tree">Android</a> ·
+    <strong>Pitch Runner</strong> <a href="https://apps.apple.com/kr/app/pitch-runner/id6759845986">iOS</a> · <a href="https://play.google.com/store/apps/details?id=com.TigerStone.PitchRunner">Android</a>
+  </p>
+</section>
+
+<!-- =================== PAGE 7 · DASI STAND OVERVIEW =================== -->
+<section class="page">
+  <div class="project-header">
+    <div class="icon-box"><img src="portfolio_assets/icons/dasi-stand.png" alt="Dasi Stand"></div>
+    <div class="meta-block">
+      <h2>Dasi Stand · 다시 스탠드: 다양한 시각의 뉴스 스탠드</h2>
+      <div class="period-role">2025.04 — 2025.12 · AI·SW 마에스트로 · 팀장 · 개발 3명·디자인 1명·멘토 3명</div>
+      <div class="tag-row">
+        <span class="tag">팀장</span>
+        <span class="tag">AI 멀티에이전트</span>
+        <span class="tag">앱스토어 뉴스 3위</span>
+        <span class="tag">AUM 340억 IR</span>
       </div>
-    </section>
+    </div>
+  </div>
 
-  </main>
+  <p style="font-size:10.5pt; line-height:1.65;">
+    <em>Beyond progressive, conservative, and centrist — a balanced perspective on the world.</em> 알고리즘 추천이 만드는 정보 편향에 맞서, 하나의 뉴스를 여러 시각에서 비교·분석해 보여주는 앱입니다. 과학기술정보통신부 AI·SW 마에스트로에서 팀장으로 8개월 동안 기획·개발·마케팅·IR을 총괄했습니다.
+  </p>
 
-  <script>
-  (() => {
-    // --- Cursor spotlight ---
-    const spotlight = document.getElementById('spotlight');
-    if (spotlight && window.matchMedia('(pointer: fine)').matches) {
-      document.addEventListener('mousemove', (e) => {
-        spotlight.style.setProperty('--sx', e.clientX + 'px');
-        spotlight.style.setProperty('--sy', e.clientY + 'px');
-      });
-    }
+  <div class="metrics-row" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="metric-card"><span class="mv">1,500+</span><span class="ml">주간 활성 사용자 (누적 6,000+ DL)</span></div>
+    <div class="metric-card"><span class="mv">20% → 42%</span><span class="ml">7일 리텐션 개선</span></div>
+    <div class="metric-card"><span class="mv">3위</span><span class="ml">앱스토어 뉴스 카테고리</span></div>
+  </div>
 
-    // --- 3D tilt + mouse-tracking glow ---
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  <h3>화면</h3>
+  <div class="screens four">
+    <img src="portfolio_assets/dasi-stand/Design.png" alt="Dasi Stand screen 1">
+    <img src="portfolio_assets/dasi-stand/Design-2.png" alt="Dasi Stand screen 2">
+    <img src="portfolio_assets/dasi-stand/Design-4.png" alt="Dasi Stand screen 3">
+    <img src="portfolio_assets/dasi-stand/Design 9.png" alt="Dasi Stand screen 4">
+  </div>
+  <figure style="margin:14px 0; text-align:center;">
+    <img src="다시스탠드 재료/사용자 피드백과 상세페이지 유입률 (낮음).png" alt="사용자 피드백과 상세페이지 유입률" style="max-width:100%; border:1px solid var(--divider); border-radius:6px;">
+    <figcaption style="font-size:9pt; color:var(--text-sub); margin-top:6px;">
+      출시 직후 퍼널 분석 · 메인 체류시간 &gt; 상세 체류시간 역전 현상과 사용자 피드백
+    </figcaption>
+  </figure>
 
-    document.querySelectorAll('.proj-card').forEach(card => {
-      const glow = card.querySelector('.card-glow');
-      const accentColor = getComputedStyle(card).getPropertyValue('--accent').trim();
+  <figure style="margin:14px 0; text-align:center;">
+    <img src="다시스탠드 재료/앱스토어 순위.png" alt="앱스토어 뉴스 카테고리 3위" style="max-width:320px; border:1px solid var(--divider); border-radius:6px;">
+    <figcaption style="font-size:9pt; color:var(--text-sub); margin-top:6px;">
+      앱스토어 뉴스 카테고리 3위 달성 스크린샷
+    </figcaption>
+  </figure>
 
-      if (!reduced) {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const cx = rect.width / 2;
-          const cy = rect.height / 2;
-          const dx = (x - cx) / cx;
-          const dy = (y - cy) / cy;
+  <h4>앱 링크</h4>
+  <p style="font-size:10pt;">
+    <a href="https://apps.apple.com/us/app/app-store/id6748309466?pt=125213920&ct=link_tree&mt=8">iOS App Store</a> ·
+    <a href="https://play.google.com/store/apps/details?id=com.PassionDev.DasiStand&referrer=utm_source%3Dlink_tree">Google Play</a>
+  </p>
+</section>
 
-          card.style.transition = 'border-color 0.3s ease, box-shadow 0.3s ease';
-          card.style.transform = `perspective(700px) rotateX(${(-dy * 5).toFixed(2)}deg) rotateY(${(dx * 5).toFixed(2)}deg) translateZ(6px)`;
+<!-- =================== PAGE 8 · DASI STAND DETAILS =================== -->
+<section class="page">
+  <h2>Dasi Stand를 이렇게 만들어 갔습니다</h2>
 
-          if (glow) {
-            glow.style.background = `radial-gradient(270px at ${x}px ${y}px, ${accentColor}2e, transparent 68%)`;
-            glow.style.opacity = '1';
-          }
-        });
+  <div class="star-row">
+    <div class="star-label">문제</div>
+    <div class="star-content">
+      2025년 조사에서 <strong>국민 96%가 정치 갈등을 '심각하다'</strong>고 답했고, 한국의 사회 갈등 지수는 퓨리서치 17개국 조사에서 2위로 나왔습니다. 알고리즘 추천에 의존할수록 필터버블과 에코챔버가 짙어지는 구조적 문제를 앱으로 풀어보고 싶었습니다.
+    </div>
+  </div>
+  <div class="star-row">
+    <div class="star-label">역할</div>
+    <div class="star-content">
+      팀장으로 8개월 동안 <strong>기획·개발·마케팅·IR</strong>을 총괄했습니다. 개발 3명·디자인 1명·멘토 3명과 함께, 하나의 뉴스에 대해 진보·보수·중도를 비롯한 여러 시각을 AI 멀티에이전트로 생성하고 비교해 보여주는 앱을 출시·운영했습니다.
+    </div>
+  </div>
+  <div class="star-row">
+    <div class="star-label">과정</div>
+    <div class="star-content">
+      <ul>
+        <li><strong>기획 산출물</strong>: 와이어프레임·이벤트 택소노미·PRD를 Figma와 Confluence로 직접 작성했습니다. Jira 스프린트와 데일리 스크럼을 주관했습니다.</li>
+        <li><strong>데이터 스택 + 사용자 리서치</strong>: Amplitude로 퍼널, GA로 전환율, Clarity로 히트맵을 운영했고, 동시에 <strong>대면 사용자 인터뷰·앱스토어 리뷰·이메일 피드백</strong>을 수집해 정량/정성 근거를 함께 읽었습니다. 매 업데이트 전후 지표 비교 리포트를 팀에 공유해, "이 기능이 어떤 지표를 얼마나 움직였는지"를 팀이 함께 쓰는 언어로 만들었습니다.</li>
+        <li><strong>핵심 판단</strong>: 출시 직후 지표가 정체되고 팀 사기가 떨어졌을 때, 말로 독려하는 대신 <strong>팀원 각자의 작업이 어떤 지표를 움직였는지</strong>를 업데이트마다 짧은 리포트로 공유했습니다. 메인 화면 체류 시간이 상세 화면보다 길다는 데이터를 근거로 정보 구조와 UI를 전면 개편했습니다.</li>
+        <li><strong>마케팅</strong>: Google Ads와 Apple Ads 에셋을 직접 제작하고 운영해 CPI ₩800과 전환율 30%를 3개월간 유지했습니다.</li>
+        <li><strong>IR</strong>: AUM 340억 규모 벤처투자사의 제안을 받아 본사에서 IR을 진행했습니다.</li>
+      </ul>
+      <figure style="margin:14px 0; text-align:center;">
+        <img src="다시스탠드 재료/발전 과정.png" alt="Dasi Stand 발전 과정" style="max-width:100%; border:1px solid var(--divider); border-radius:6px;">
+        <figcaption style="font-size:9pt; color:var(--text-sub); margin-top:6px;">
+          출시 → 개선 사이클 반복으로 이어진 프로덕트 발전 과정
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="star-row">
+    <div class="star-label">결과</div>
+    <div class="star-content">
+      3개월 동안 <strong>15번의 업데이트</strong>를 반복하며 7일 리텐션을 20%에서 42%로, 체류 시간을 4분에서 8분 30초로 끌어올렸습니다. 누적 사용자 6,000명 이상, 주간 활성 사용자 1,500명 이상을 확보했고 <strong>앱스토어 뉴스 카테고리 3위·플레이스토어 7위</strong>에 올랐습니다. AI 타임즈 등 10곳 이상의 매체에 보도되었고, 멀티에이전트 시스템으로 <strong>특허를 출원</strong>했습니다. 팀 전원이 우수자로 선정되어 8주 동안 미국 연수에 참여했습니다.
 
-        card.addEventListener('mouseleave', () => {
-          card.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease, box-shadow 0.3s ease';
-          card.style.transform = '';
-          if (glow) {
-            glow.style.opacity = '0';
-            glow.style.background = '';
-          }
-        });
-      }
-    });
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top:12px;">
+        <figure style="margin:0; text-align:center;">
+          <img src="다시스탠드 재료/화면 개선과 그 후 사용자 성장 변화.png" alt="UI 개편 전후 사용자 성장" style="max-width:100%; border:1px solid var(--divider); border-radius:6px;">
+          <figcaption style="font-size:8.5pt; color:var(--text-sub); margin-top:4px;">
+            UI 개편 전후 사용자 성장
+          </figcaption>
+        </figure>
+        <figure style="margin:0; text-align:center;">
+          <img src="다시스탠드 재료/지표 성과.png" alt="핵심 지표 성과" style="max-width:100%; border:1px solid var(--divider); border-radius:6px;">
+          <figcaption style="font-size:8.5pt; color:var(--text-sub); margin-top:4px;">
+            핵심 지표 성과
+          </figcaption>
+        </figure>
+        <figure style="margin:0; text-align:center;">
+          <img src="다시스탠드 재료/언론 평가.png" alt="언론 보도 평가" style="max-width:100%; border:1px solid var(--divider); border-radius:6px;">
+          <figcaption style="font-size:8.5pt; color:var(--text-sub); margin-top:4px;">
+            AI 타임즈 등 10곳+ 매체 보도
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="star-row">
+    <div class="star-label">배운 점</div>
+    <div class="star-content">
+      출시 직후 지표가 오르지 않았을 때 저도 처음에는 "조금만 더 해보자"는 말로 독려했지만, <strong>감정적인 독려만으로는 팀의 힘이 금방 빠진다</strong>는 것을 배웠습니다. 데이터가 팀의 공통 언어가 될 때 비로소 사기가 돌아오고 다음 개선으로 이어졌습니다. 다시 한다면 이벤트 택소노미를 출시 전에 완성해, 배포 첫날부터 퍼널 분석이 가능하도록 준비하고 싶습니다.
+    </div>
+  </div>
+</section>
 
-    // --- Scroll reveal ---
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          el.classList.add('revealed');
-          const delay = parseFloat(getComputedStyle(el).transitionDelay) * 1000 || 0;
-          setTimeout(() => { el.style.transitionDelay = '0s'; }, delay + 700);
-          revealObserver.unobserve(el);
-        }
-      });
-    }, { threshold: 0.08 });
+<!-- =================== PAGE 9 · 해병대 선번장 + OTHER EXPERIENCES =================== -->
+<section class="page">
+  <h2>해병대 연평부대 네트워크 관리 (선번장) 웹사이트</h2>
 
-    document.querySelectorAll('.hero, .proj-card').forEach(el => revealObserver.observe(el));
-  })();
-  </script>
+  <div class="sub-project">
+    <h3>비전공자가 기획·개발을 시작한 계기</h3>
+    <p style="font-size:10pt; line-height:1.65;">
+      <strong>해병대 연평부대 · 2021.03 — 2022.03 · 정보통신 · 병장 · Node.js + MongoDB</strong><br>
+      입대 전 개발을 배운 적이 없었지만, <strong>중대 근무표 편성에서 반복되던 상급자 간 불만·갈등</strong>을 보고 주말 이틀 동안 몰입해 조건 기반 근무표 생성 웹을 만들었습니다. 다음 주부터 모든 중대가 이 프로그램으로 근무표를 짜면서 갈등이 종식됐고, 이 결과가 인정받아 <strong>연평부대 네트워크 관리 웹사이트 개발을 정식 의뢰</strong>받아 장비·시간을 지원받은 것이 기획자·개발자로서의 출발점이었습니다.
+    </p>
+  </div>
+
+  <div class="star-row">
+    <div class="star-label">문제 · 결정</div>
+    <div class="star-content">
+      연평부대의 모든 동·광케이블, 전화 장비(RD·TD), 스위치·라우터 포트 정보가 <strong>본부 시험실(교환대)의 엑셀 파일에만</strong> 기록되어 있었습니다. 타 중대·소초는 전화로 시험실에 문의해야 했고, 현장에서 포트를 옮기면 시험실도 모른 채 정보가 어긋났습니다. 저는 <strong>인트라넷 웹사이트로 전 부대 포트 현황을 실시간 공유</strong>하는 방향을 잡고, 시험실 <strong>MSPP EMS UI</strong>에서 영감을 얻어 포트를 <strong>실제 장비 모양</strong>(MDF·CDF·FDF·패치판넬)으로 렌더링하고 상태를 <strong>색상 코드</strong>(녹색=연결 · 황색=브릿지 · 홍색=불량)로 표시했습니다. 병사가 직관적으로 쓸 <strong>작업 중심 UI</strong>와 <strong>수정/읽기 권한 분리</strong>를 핵심 원칙으로 설계했습니다.
+    </div>
+  </div>
+
+  <div class="star-row">
+    <div class="star-label">기능 · 결과</div>
+    <div class="star-content">
+      핵심 기능으로 <strong>노드·포트 생성</strong>(장비 종류·케이블·포트 수에 따라 포트 생김새 자동 결정), <strong>포트 연결 관리</strong>(더블 클릭 시 연결된 모든 단자 파란색 하이라이트), <strong>반대편 노드 포트 상태 오버레이</strong>, <strong>용도별 포트 일괄 검색</strong>, <strong>오조작 방지</strong>(삭제 전 반대편 포함 모든 연결 해제 강제) 등을 설계했습니다. 배포 후 <strong>연평부대 모든 통신병·간부가 자기 노드를 직접 관리</strong>하는 표준 업무 도구가 되었고, 그 공로로 <strong>영관급 정보통신업무유공 표창</strong>을 받았습니다. <strong>"현장 불편 → 스스로 기획·개발 → 배포 후 실사용 검증"</strong>이라는 사이클을 처음 온전히 돌려본 이 경험이 이후 TigerStone 시리즈와 Dasi Stand 기획의 토대가 되었습니다.
+    </div>
+  </div>
+
+  <h4>주요 화면</h4>
+  <div class="screens four">
+    <img src="연평부대 네트워크 관리 프로그램 (선번장) 스크린샷/홈화면.png" alt="홈 화면">
+    <img src="연평부대 네트워크 관리 프로그램 (선번장) 스크린샷/노드 화면.png" alt="노드별 화면">
+    <img src="연평부대 네트워크 관리 프로그램 (선번장) 스크린샷/포트 연결.png" alt="포트 연결 관리">
+    <img src="연평부대 네트워크 관리 프로그램 (선번장) 스크린샷/포트 검색.png" alt="포트 검색">
+  </div>
+
+</section>
+
+<!-- =================== PAGE 10 · MEGASTUDY 지원 동기 =================== -->
+<section class="page">
+  <h2>메가스터디교육에서 하고 싶은 일</h2>
+  <p style="font-size:10pt; color:var(--text-sub); margin-bottom:8px;">각 단계를 [메가스터디 현상] → [제 경험과의 접점] → [그래서 하고 싶은 일] 세 층으로 정리했습니다.</p>
+
+  <div class="star-row">
+    <div class="star-label">3개월 안</div>
+    <div class="star-content">
+      <strong>[메가스터디 현상]</strong> 2025년 12월 29일, 메가스터디는 플래그십 앱 <strong>스마트러닝</strong> 안에 <strong>AI 인덱스</strong>(강의 요약·핵심 자동 정리)와 <strong>AI 검색</strong>(생성형 AI 대화형 강의 추천·커리큘럼 안내) Beta를 정식 오픈했습니다. 학생이 강의를 고르고 수강하는 경로 자체를 AI로 재설계하는 시도라고 이해했습니다.<br>
+      <strong>[제 경험과의 접점]</strong> 저는 Absolute Ear 기획 단계에서 <strong>사용자 설문</strong>과 Amplitude 퍼널을 근거로 "콘텐츠가 많은데 뭐부터 해야 할지 모른다"는 문제를 발견했고, 온보딩에 <strong>수준 진단·맞춤 커리큘럼</strong>을 넣어 해결해 본 경험이 있습니다. 다만 수백 명 단위 데이터에 규칙 기반으로 짠 것이었고, 생성형 AI가 추천 루프에 들어오는 설계는 다뤄보지 못했습니다.<br>
+      <strong>[그래서 하고 싶은 일]</strong> Beta 단계의 AI 인덱스·AI 검색이 실사용자들에게 어떤 퍼널을 만들어내는지 실무에서 읽어보며, "AI 추천 → 학생 반응 → 학습 성과"로 이어지는 가설 설계·검증 사이클에 작은 몫이라도 보태고 싶습니다.
+    </div>
+  </div>
+
+  <div class="star-row">
+    <div class="star-label">6개월 안</div>
+    <div class="star-content">
+      <strong>[메가스터디 현상]</strong> 메가스터디교육은 스마트러닝(고등)·QUBE(Q&amp;A)·엠베스트·엘리하이까지 <strong>브랜드별로 분화된 학습 앱 포트폴리오</strong>를 운영합니다. 기획·디자인·개발·콘텐츠 팀이 각 앱의 업데이트 사이클을 함께 돌리고 있습니다.<br>
+      <strong>[제 경험과의 접점]</strong> Dasi Stand에서 개발 3명·디자인 1명·멘토 3명과 8개월간 기능 하나의 사이클(기획 → QA → 지표 검증)을 돌려본 경험은 있지만, 여러 앱이 병렬로 돌아가는 조직의 협업 방식은 밖에서 볼 수밖에 없었습니다.<br>
+      <strong>[그래서 하고 싶은 일]</strong> 운영 중인 학습 앱 기능 하나의 <strong>개선 사이클</strong>을 기획부터 QA·지표 검증까지 맡아보며, 대규모 조직에서의 협업 방식과 내부 데이터 환경을 익히고 싶습니다.
+    </div>
+  </div>
+
+  <div class="star-row">
+    <div class="star-label">그 이후</div>
+    <div class="star-content">
+      <strong>[메가스터디 현상]</strong> 2025년 엘리하이 <strong>플레이빌</strong>(초등 게임형 학습), 2026년 엠베스트 <strong>AI 스마트매쓰</strong>(중등 AI 채점)처럼, 메가스터디교육은 <strong>유아부터 성인 수능·내신까지 학습 여정 전 구간</strong>에서 AI·게임화 실험을 병행하고 있습니다.<br>
+      <strong>[제 경험과의 접점]</strong> 저는 지난 4년간 취미 학습자(음악)와 시사 소비자(뉴스) 두 결의 사용자를 다뤄왔고, Absolute Ear 설문에서 <strong>한 앱 안에서도 취미 65%·입시/전공 25%처럼 사용자 유형이 나뉜다</strong>는 것을 확인했습니다.<br>
+      <strong>[그래서 하고 싶은 일]</strong> 여기에 수능·내신이라는 목표 지향 학습자까지 실무에서 경험하면, <strong>학습자 한 명의 다음 한 걸음을 데이터로 읽어내는 앱 기획자</strong>로 자랄 수 있겠다고 체감했습니다. 그것이 긴 호흡의 목표입니다.
+    </div>
+  </div>
+</section>
+
+<!-- =================== PAGE 11 · CONTACT =================== -->
+<section class="page" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(160deg, #ffffff 0%, var(--accent-light) 100%);">
+  <div style="margin-top:40mm;">
+    <p class="brand" style="font-size:12pt; letter-spacing:2px; color:var(--text-sub);">연락처</p>
+    <h1 style="font-size:28pt; color:var(--primary); margin:12px 0 8px 0;">감사합니다</h1>
+    <div class="divider" style="width:60px; height:3px; background:var(--primary); margin:16px auto;"></div>
+    <p style="font-size:12pt; color:var(--navy); max-width:440px; margin:20px auto; line-height:1.7;">
+      포트폴리오를 끝까지 읽어주셔서 감사합니다.<br>
+      궁금한 점은 언제든 편하게 연락 주시면 감사하겠습니다.
+    </p>
+
+    <div style="margin-top:36px; font-size:11pt; line-height:2;">
+      <div><strong style="color:var(--primary);">정범석 · Beom Seok Chung</strong></div>
+      <div>연락처 · 010-8615-0607</div>
+      <div>이메일 · <a href="mailto:00fanxi@gmail.com">00fanxi@gmail.com</a></div>
+      <div>포트폴리오 · <a href="https://tigerstone1263.com">tigerstone1263.com</a></div>
+    </div>
+
+    <div style="margin-top:36px; font-size:10pt; color:var(--text-sub);">
+      앱 스토어에서 만나실 수 있습니다
+    </div>
+    <div style="margin-top:8px; font-size:9.5pt; line-height:1.9;">
+      <a href="https://apps.apple.com/app/apple-store/id1636530380?pt=125213920&ct=link_tree&mt=8">Absolute Pitch</a> ·
+      <a href="https://apps.apple.com/app/apple-store/id6739764701?pt=125213920&ct=tigerstone/link_tree&mt=8">Absolute Ear</a> ·
+      <a href="https://apps.apple.com/kr/app/pitch-runner/id6759845986">Pitch Runner</a> ·
+      <a href="https://apps.apple.com/us/app/app-store/id6748309466?pt=125213920&ct=link_tree&mt=8">Dasi Stand</a>
+    </div>
+  </div>
+</section>
+
 </body>
 </html>
